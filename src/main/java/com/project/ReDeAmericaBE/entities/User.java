@@ -3,6 +3,9 @@ package com.project.ReDeAmericaBE.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Setter
 @Getter
@@ -22,5 +25,15 @@ public class User {
     private String email;
     @Column(name = "password", nullable = false, length = 45)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Publication> publications = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
+
 
 }

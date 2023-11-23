@@ -1,14 +1,17 @@
 package com.project.ReDeAmericaBE.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.util.Date;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "comment")
 public class Comment {
     @Id
@@ -19,6 +22,14 @@ public class Comment {
     @Column(name = "date", nullable = false)
     private Date date;
     @Column(name = "file", nullable = false)
+    @Basic(optional = false, fetch = FetchType.EAGER)
+    @Lob()
     private byte[] file;
 
+    @ManyToOne
+    @JoinColumn(name = "idPublication", nullable = false)
+    private Publication publication;
+    @ManyToOne
+    @JoinColumn(name = "idUser", nullable = false)
+    private User user;
 }
