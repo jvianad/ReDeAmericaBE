@@ -35,5 +35,13 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
 
-
+    public User(String name, String lastName, String email, String password, Role role, Set<Publication> publications, Set<Comment> comments) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.publications = publications;
+        this.comments = comments;
+    }
 }

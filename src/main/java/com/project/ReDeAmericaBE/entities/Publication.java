@@ -21,12 +21,12 @@ public class Publication {
     private String title;
     @Column(name = "content", nullable = false)
     private String content;
-    @Column(name = "file", nullable = false)
-    @Basic(optional = false, fetch = FetchType.EAGER)
+    /*@Column(name = "file", nullable = true)
+    @Basic(optional = true, fetch = FetchType.EAGER)
     @Lob()
-    private byte [] file;
-    @Column(name = "date", nullable = false)
-    private Date date;
+    private byte [] file; */
+    @Column(name = "date", nullable = true)
+    private String date;
 
     @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
     private Set<Approach> approaches = new HashSet<>();
@@ -39,7 +39,7 @@ public class Publication {
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "idCountry", nullable = false)
+    @JoinColumn(name = "idCountry", nullable = true)
     private Country country;
 
 }
