@@ -23,7 +23,6 @@ public class UserService {
             return null;
         }
         userUpdated.setUsername(user.getUsername());
-        userUpdated.setEmail(user.getEmail());
         userUpdated.setImage(user.getImage());
         return userRepository.save(userUpdated);
     }
