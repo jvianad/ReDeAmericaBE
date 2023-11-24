@@ -41,7 +41,8 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
-    /*public static void main(String[] args) {
-        System.out.println("pass: "+new BCryptPasswordEncoder().encode("jose"));
+    /*
+    public static void main(String[] args) {
+        System.out.println("pass: "+new BCryptPasswordEncoder().encode("juan"));
     }*/
 }
