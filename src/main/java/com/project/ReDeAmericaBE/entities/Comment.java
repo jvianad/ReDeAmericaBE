@@ -1,5 +1,6 @@
 package com.project.ReDeAmericaBE.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -17,18 +18,19 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idComment;
+
     @Column(name = "content", nullable = false)
     private String content;
+
     @Column(name = "date", nullable = false)
     private Date date;
-    @Column(name = "file", nullable = false)
-    @Basic(optional = false, fetch = FetchType.EAGER)
-    @Lob()
-    private byte[] file;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idPublication", nullable = false)
     private Publication publication;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idUser", nullable = false)
     private User user;
