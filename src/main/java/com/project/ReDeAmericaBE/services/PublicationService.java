@@ -32,4 +32,8 @@ public class PublicationService {
     public List<Publication> getAllPublications(){
         return publicationRepository.findAll();
     }
+
+    public List<Publication> getAllPublicationsByCountry(String country) {
+        return publicationRepository.findAllByCountry(country);
+    }
 }

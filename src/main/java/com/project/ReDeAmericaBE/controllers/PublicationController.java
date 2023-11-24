@@ -30,4 +30,13 @@ public class PublicationController {
         }
         return ResponseEntity.ok(publications);
     }
+
+    @GetMapping("/{country}")
+    public ResponseEntity<List<Publication>> getAllPublicationsByCountry(@PathVariable String country){
+        List<Publication> publications = publicationService.getAllPublicationsByCountry(country);
+        if (publications.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(publications);
+    }
 }
