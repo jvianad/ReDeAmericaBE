@@ -26,6 +26,8 @@ public class Publication {
     @Column(name = "country", nullable = false)
     private String country;
 
+    @ElementCollection
+    private List<String> files;
 
     @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
