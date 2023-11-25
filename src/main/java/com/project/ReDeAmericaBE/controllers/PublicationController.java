@@ -39,4 +39,15 @@ public class PublicationController {
         }
         return ResponseEntity.ok(publications);
     }
+
+    @DeleteMapping("/{idPublication}")
+    public ResponseEntity<String> deletePublication(@PathVariable Integer idPublication){
+        try{
+            publicationService.deletePublication(idPublication);
+            return ResponseEntity.ok("La publicación se eliminó correctamente");
+        }catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 }

@@ -36,4 +36,9 @@ public class PublicationService {
     public List<Publication> getAllPublicationsByCountry(String country) {
         return publicationRepository.findAllByCountry(country);
     }
+
+    public void deletePublication(Integer idPublication) {
+        Publication publication = publicationRepository.findById(idPublication).orElseThrow(() -> new RuntimeException("Publication not found with id: " + idPublication));
+        publicationRepository.deleteById(idPublication);
+    }
 }
