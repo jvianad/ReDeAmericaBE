@@ -17,14 +17,14 @@ public class Publication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPublication;
 
-    @Column(name = "title", nullable = false, length = 45)
-    private String title;
-
     @Column(name = "content", nullable = false)
     private String content;
 
     @Column(name = "country", nullable = false)
     private String country;
+
+    @Column(name = "date", nullable = true)
+    private Date date;
 
     @ElementCollection
     private List<String> files;
@@ -32,7 +32,6 @@ public class Publication {
     @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idUser", nullable = false)
     private User user;

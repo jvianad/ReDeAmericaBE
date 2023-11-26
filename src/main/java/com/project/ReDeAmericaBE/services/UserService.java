@@ -26,4 +26,8 @@ public class UserService {
         userUpdated.setImage(user.getImage());
         return userRepository.save(userUpdated);
     }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
+    }
 }

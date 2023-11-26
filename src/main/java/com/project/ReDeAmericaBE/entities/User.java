@@ -42,6 +42,9 @@ public class User implements UserDetails {
     @Column(name = "image", nullable = true)
     private String image;
 
+    @Column(name = "specialty", nullable = true)
+    private String specialty;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Publication> publications = new ArrayList<>();
