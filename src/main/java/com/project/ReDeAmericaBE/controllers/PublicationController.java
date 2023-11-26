@@ -22,6 +22,7 @@ public class PublicationController {
         return new ResponseEntity<>(newPublication, HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<Publication>> getAllPublications(){
         List<Publication> publications = publicationService.getAllPublications();
