@@ -13,6 +13,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/{idUser}/{idPublication}")
     public ResponseEntity<Comment> commentPublication(@PathVariable Integer idUser, @PathVariable Integer idPublication, @RequestBody Comment comment) {
         Comment newComment = commentService.commentPublication(idUser, idPublication, comment);

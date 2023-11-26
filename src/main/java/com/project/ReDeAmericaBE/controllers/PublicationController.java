@@ -16,6 +16,7 @@ public class PublicationController {
     @Autowired
     private PublicationService publicationService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/{idUser}")
     public ResponseEntity<Publication> createPublication(@PathVariable Integer idUser, @RequestBody Publication publication) throws IOException {
         Publication newPublication = publicationService.createPublication(idUser, publication);
@@ -32,6 +33,7 @@ public class PublicationController {
         return ResponseEntity.ok(publications);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{country}")
     public ResponseEntity<List<Publication>> getAllPublicationsByCountry(@PathVariable String country){
         List<Publication> publications = publicationService.getAllPublicationsByCountry(country);
@@ -41,6 +43,7 @@ public class PublicationController {
         return ResponseEntity.ok(publications);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{idPublication}")
     public ResponseEntity<String> deletePublication(@PathVariable Integer idPublication){
         try{
