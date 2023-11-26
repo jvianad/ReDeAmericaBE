@@ -15,8 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 
 @Configuration
 @RequiredArgsConstructor
@@ -63,7 +62,6 @@ public class ApplicationConfig {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
     /*
     public static void main(String[] args) {
         System.out.println("pass: "+new BCryptPasswordEncoder().encode("juan"));
